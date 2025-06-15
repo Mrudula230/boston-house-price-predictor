@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,3 +62,68 @@
     {% endif %}
 </body>
 </html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Boston House Price Predictor</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+        input[type=number], input[type=submit] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type=submit] {
+            background-color: #28a745;
+            color: white;
+            font-weight: bold;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Boston House Price Predictor</h1>
+    <form action="/predict" method="post">
+        <!-- Add all your feature input fields below -->
+        <input type="number" name="CRIM" placeholder="CRIM (Crime rate)" required>
+        <input type="number" name="ZN" placeholder="ZN (Residential land)" required>
+        <input type="number" name="INDUS" placeholder="INDUS (Non-retail)" required>
+        <input type="number" name="CHAS" placeholder="CHAS (Charles River dummy)" required>
+        <input type="number" name="NOX" placeholder="NOX (Nitric Oxide)" required>
+        <input type="number" name="RM" placeholder="RM (Rooms per dwelling)" required>
+        <input type="number" name="AGE" placeholder="AGE (Owner-occupied %)" required>
+        <input type="number" name="DIS" placeholder="DIS (Distance to employment)" required>
+        <input type="number" name="RAD" placeholder="RAD (Accessibility)" required>
+        <input type="number" name="TAX" placeholder="TAX (Property tax rate)" required>
+        <input type="number" name="PTRATIO" placeholder="PTRATIO (Pupil-teacher ratio)" required>
+        <input type="number" name="B" placeholder="B (1000(Bk - 0.63)^2)" required>
+        <input type="number" name="LSTAT" placeholder="LSTAT (% lower status)" required>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction_text %}
+    <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+</body>
+</html>
+
